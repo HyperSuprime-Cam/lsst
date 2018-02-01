@@ -46,7 +46,7 @@ CONDA_CHANNELS=${CONDA_CHANNELS:-}
 LSST_HOME="$PWD"
 
 # the canonical source of this script
-NEWINSTALL_URL="https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh"
+NEWINSTALL_URL="https://raw.githubusercontent.com/HyperSuprime-Cam/lsst/master/scripts/newinstall.sh"
 
 #
 # removing leading/trailing whitespace from a string
@@ -458,7 +458,7 @@ n8l::miniconda::lsst_env() {
 			;;
 	esac
 
-	local baseurl="https://raw.githubusercontent.com/lsst/lsstsw/${ref}/etc/"
+	local baseurl="https://raw.githubusercontent.com/HyperSuprime-Cam/lsstsw/${ref}/etc/"
 	local tmpfile
 
 	# conda may leave behind lock files from an uncompleted package installation
