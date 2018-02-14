@@ -30,7 +30,7 @@ EUPS_GITREV=${EUPS_GITREV:-}
 EUPS_GITREPO=${EUPS_GITREPO:-https://github.com/RobertLuptonTheGood/eups.git}
 EUPS_TARURL=${EUPS_TARURL:-https://github.com/RobertLuptonTheGood/eups/archive/$EUPS_VERSION.tar.gz}
 
-EUPS_PKGROOT_BASE_URL=${EUPS_PKGROOT_BASE_URL:-https://eups.lsst.codes/stack}
+EUPS_PKGROOT_BASE_URL=${EUPS_PKGROOT_BASE_URL:-http://master.ipmu.jp/~price/packages-hscPipe6}
 EUPS_USE_TARBALLS=${EUPS_USE_TARBALLS:-false}
 EUPS_USE_EUPSPKG=${EUPS_USE_EUPSPKG:-true}
 
