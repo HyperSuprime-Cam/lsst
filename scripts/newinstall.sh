@@ -354,7 +354,7 @@ n8l::default_eups_pkgroot() {
 		fi
 
 		if [[ $use_eupspkg == true ]]; then
-			roots+=( "${EUPS_PKGROOT_BASE_URL}/src" )
+			roots+=( "${EUPS_PKGROOT_BASE_URL}" )
 		fi
 	fi
 
