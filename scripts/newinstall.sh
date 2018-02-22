@@ -500,10 +500,7 @@ n8l::miniconda::lsst_env() {
 n8l::up2date_check() {
 	set +e
 
-	local amidiff
-	amidiff=$($CURL "$CURL_OPTS" -L "$NEWINSTALL_URL" | diff --brief - "$0")
-
-	if [[ $amidiff == *differ ]]; then
+    if ! diff --brief "$0" <($CURL "$CURL_OPTS" -L "$NEWINSTALL_URL") > /dev/null; then
 		n8l::print_error "$(cat <<-EOF
 			!!! This script differs from the official version on the distribution
 			server.  If this is not intentional, get the current version from here:
