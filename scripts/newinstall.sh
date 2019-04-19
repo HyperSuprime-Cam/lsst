@@ -21,7 +21,7 @@ LSST_EUPS_GITREV=${LSST_EUPS_GITREV:-}
 LSST_EUPS_GITREPO=${LSST_EUPS_GITREPO:-https://github.com/RobertLuptonTheGood/eups.git}
 LSST_EUPS_TARURL=${LSST_EUPS_TARURL:-https://github.com/RobertLuptonTheGood/eups/archive/${LSST_EUPS_VERSION}.tar.gz}
 
-LSST_EUPS_PKGROOT_BASE_URL=${LSST_EUPS_PKGROOT_BASE_URL:-https://eups.lsst.codes/stack}
+LSST_EUPS_PKGROOT_BASE_URL=${LSST_EUPS_PKGROOT_BASE_URL:-http://tigress-web.princeton.edu/~HSC/hscPipe7}
 LSST_EUPS_USE_TARBALLS=${LSST_EUPS_USE_TARBALLS:-false}
 LSST_EUPS_USE_EUPSPKG=${LSST_EUPS_USE_EUPSPKG:-true}
 
@@ -46,7 +46,7 @@ LSST_CONDA_ENV_NAME=${LSST_CONDA_ENV_NAME:-lsst-scipipe-${LSST_SPLENV_REF}}
 LSST_HOME="$PWD"
 
 # the canonical source of this script
-NEWINSTALL_URL="https://raw.githubusercontent.com/lsst/lsst/master/scripts/newinstall.sh"
+NEWINSTALL_URL="https://raw.githubusercontent.com/HyperSuprime-Cam/lsst/master/scripts/newinstall.sh"
 
 #
 # removing leading/trailing whitespace from a string
@@ -496,7 +496,7 @@ n8l::miniconda::lsst_env() {
 			;;
 	esac
 
-	local baseurl="https://raw.githubusercontent.com/lsst/scipipe_conda_env/${ref}/etc/"
+	local baseurl="https://raw.githubusercontent.com/HyperSuprime-Cam/scipipe_conda_env/${ref}/etc/"
 	local tmpfile
 
 	# conda may leave behind lock files from an uncompleted package installation
