@@ -27,10 +27,10 @@ LSST_EUPS_USE_EUPSPKG=${LSST_EUPS_USE_EUPSPKG:-true}
 
 # force Python 3
 LSST_PYTHON_VERSION=3
-LSST_MINICONDA_VERSION=${LSST_MINICONDA_VERSION:-4.5.12}
+LSST_MINICONDA_VERSION=${LSST_MINICONDA_VERSION:-4.7.10}
 # this git ref controls which set of conda packages are used to initialize the
 # the default conda env defined in scipipe_conda_env git package (RFC-553).
-LSST_SPLENV_REF=${LSST_SPLENV_REF:-${LSST_LSSTSW_REF:-1172c30}}
+LSST_SPLENV_REF=${LSST_SPLENV_REF:-${LSST_LSSTSW_REF:-4d7b902}}
 LSST_MINICONDA_BASE_URL=${LSST_MINICONDA_BASE_URL:-https://repo.continuum.io/miniconda}
 LSST_CONDA_CHANNELS=${LSST_CONDA_CHANNELS:-}
 LSST_CONDA_ENV_NAME=${LSST_CONDA_ENV_NAME:-lsst-scipipe-${LSST_SPLENV_REF}}
@@ -310,11 +310,11 @@ n8l::sys::platform() {
 			case $__release in
 				6)
 					__platform=el6
-					__target_cc=devtoolset-6
+					__target_cc=devtoolset-8
 					;;
 				7)
 					__platform=el7
-					__target_cc=devtoolset-6
+					__target_cc=devtoolset-8
 					;;
 				*)
 					[[ $__debug == true ]] && n8l::print_error "unsupported release: $__release"
@@ -499,15 +499,11 @@ n8l::miniconda::lsst_env() {
 	local baseurl="https://raw.githubusercontent.com/HyperSuprime-Cam/scipipe_conda_env/${ref}/etc/"
 	local tmpfile
 
-	# conda may leave behind lock files from an uncompleted package installation
-	# attempt.  These need to be cleaned up before [re]attempting to install
-	# packages.
-	$cmd conda clean --lock
-
 	(
 		set -Eeo pipefail
 
 		tmpfile=$(mktemp -t "${conda_packages//X/_}.XXXXXXXX")
+		tmpfile="${tmpfile}.yml"
 		# attempt to be a good citizen and not leave tmp files laying around
 		# after either a normal exit or an error condition
 		# shellcheck disable=SC2064
